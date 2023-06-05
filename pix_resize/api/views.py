@@ -8,18 +8,18 @@ from django.shortcuts import render
 
 
 # Create your views here.
-# class CreateListDestroyViewSet(mixins.CreateModelMixin,
-#                                mixins.RetrieveModelMixin,
-#                                mixins.ListModelMixin,
-#                                mixins.DestroyModelMixin,
-#                                viewsets.GenericViewSet):
-#     pass
+class CreateListDestroyViewSet(mixins.CreateModelMixin,
+                               mixins.RetrieveModelMixin,
+                               mixins.ListModelMixin,
+                               mixins.DestroyModelMixin,
+                               viewsets.GenericViewSet):
+    pass
 
 
 NO_FIELD = {'status': 'Please add width or/end height for resizing'}
 
 
-class ImageViewSet(viewsets.ModelViewSet):
+class ImageViewSet(CreateListDestroyViewSet):
     queryset = Picture.objects.all()
     serializer_class = PixSerializer
 
