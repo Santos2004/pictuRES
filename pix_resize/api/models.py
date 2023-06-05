@@ -9,7 +9,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 class Picture(models.Model):
     name = models.CharField(max_length=100, null=True)
     url = models.URLField(null=True, blank=True, verbose_name='URL')
-    picture = models.ImageField(upload_to='m/site_media/', null=True, blank=True)
+    picture = models.ImageField(upload_to='site_media/', null=True, blank=True)
     width = models.PositiveIntegerField(null=True, blank=True)
     height = models.PositiveIntegerField(null=True, blank=True)
     parent_picture = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='parents')

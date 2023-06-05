@@ -1,14 +1,22 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .serializers import PixSerializer
 from .models import Picture
 from django.shortcuts import render
 
-# Create your views here.
 
-NO_FIELD = {'status': 'Please add any information'}
+# Create your views here.
+# class CreateListDestroyViewSet(mixins.CreateModelMixin,
+#                                mixins.RetrieveModelMixin,
+#                                mixins.ListModelMixin,
+#                                mixins.DestroyModelMixin,
+#                                viewsets.GenericViewSet):
+#     pass
+
+
+NO_FIELD = {'status': 'Please add width or/end height for resizing'}
 
 
 class ImageViewSet(viewsets.ModelViewSet):
